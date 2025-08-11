@@ -15,6 +15,9 @@ const config = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  images: {
+    remotePatterns: [new URL("https://img.clerk.com/**")],
+  },
 };
 
 export default config;
