@@ -107,14 +107,14 @@ export function SpiderChart() {
   return (
     <>
       {/* Header */}
-      <div className="mb-4 space-y-4 text-center">
+      <div className="mt-4 mb-4 space-y-4 text-center">
         <h1 className="text-foreground mb-2 text-4xl font-bold">
           Character Stats Dashboard
         </h1>
         <div className="flex items-center justify-center gap-4">
-          <Button variant="outline" className="p-4" asChild>
+          {/* <Button variant="outline" className="p-4" asChild>
             <Link href="/dashboard">Back</Link>
-          </Button>
+          </Button> */}
           <Badge
             className={`${powerLevel.color} text-foreground animate-pulse px-4 py-2 text-lg`}
           >
