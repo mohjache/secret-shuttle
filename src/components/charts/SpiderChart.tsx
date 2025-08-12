@@ -132,7 +132,7 @@ export function SpiderChart() {
       </div>
       {/* Header */}
 
-      <div className="grid max-h-[calc(100vh-12rem)] gap-6 lg:grid-cols-2">
+      <div className="grid gap-6 lg:grid-cols-2">
         {/* Spider Chart */}
         <Card className="mx-2 border-slate-700 bg-slate-800/50 backdrop-blur-sm">
           <CardHeader>
