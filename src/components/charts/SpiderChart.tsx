@@ -13,6 +13,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
 import { Slider } from "~/components/ui/slider";
 import { Badge } from "~/components/ui/badge";
 import { Sparkles, Zap, Shield, Sword, Rocket, Brain } from "lucide-react";
+import { Button } from "~/ui/button";
+import Link from "next/link";
 
 const STATS = [
   {
@@ -106,12 +108,15 @@ export function SpiderChart() {
     <>
       {/* Header */}
       <div className="mb-4 space-y-4 text-center">
-        <h1 className="mb-2 text-4xl font-bold text-foreground">
+        <h1 className="text-foreground mb-2 text-4xl font-bold">
           Character Stats Dashboard
         </h1>
         <div className="flex items-center justify-center gap-4">
+          <Button variant="outline" className="p-4" asChild>
+            <Link href="/dashboard">Back</Link>
+          </Button>
           <Badge
-            className={`${powerLevel.color} animate-pulse px-4 py-2 text-lg text-foreground`}
+            className={`${powerLevel.color} text-foreground animate-pulse px-4 py-2 text-lg`}
           >
             {powerLevel.level} Level
           </Badge>
