@@ -85,7 +85,7 @@ export default function Footer() {
 
         <div className="mt-8 border-t pt-8 text-center">
           <p className="text-muted-foreground text-sm">
-            © {new Date().getFullYear()} upCoach. All rights reserved.
+            © {new Date().getFullYear()} SecretShuttle. All rights reserved.
           </p>
         </div>
       </div>
