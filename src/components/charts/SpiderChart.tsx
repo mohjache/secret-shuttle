@@ -106,20 +106,20 @@ export function SpiderChart() {
     <>
       {/* Header */}
       <div className="mb-4 space-y-4 text-center">
-        <h1 className="mb-2 text-4xl font-bold text-white">
+        <h1 className="mb-2 text-4xl font-bold text-foreground">
           Character Stats Dashboard
         </h1>
         <div className="flex items-center justify-center gap-4">
           <Badge
-            className={`${powerLevel.color} animate-pulse px-4 py-2 text-lg text-white`}
+            className={`${powerLevel.color} animate-pulse px-4 py-2 text-lg text-foreground`}
           >
             {powerLevel.level} Level
           </Badge>
-          <div className="text-white">
+          <div className="text-foreground">
             <span className="text-2xl font-bold">{getAverageScore()}</span>
             <span className="ml-1 text-sm opacity-70">avg score</span>
           </div>
-          <div className="text-white">
+          <div className="text-foreground">
             <span className="text-2xl font-bold">{getTotalPower()}</span>
             <span className="ml-1 text-sm opacity-70">total power</span>
           </div>

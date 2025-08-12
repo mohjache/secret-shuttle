@@ -7,6 +7,8 @@ import { FallbackComponent } from "~/components/fallback";
 import { Card, CardContent } from "~/components/ui/card";
 import { Input } from "~/components/ui/input";
 import Image from "next/image";
+import { useDebounce } from "~/lib/useDebounce";
+import Link from "next/link";
 
 const users: User[] = [
   {
@@ -62,15 +64,16 @@ type User = {
 
 const Page = () => {
   const [search, setSearch] = useState("");
+  const debouncedSearch = useDebounce(search, 500);
 
   const filteredUsers = useMemo(
     () =>
       users.filter(
         (u) =>
-          u.firstName.toLowerCase().includes(search.toLowerCase()) ||
-          u.lastName.toLowerCase().includes(search.toLowerCase()),
+          u.firstName.toLowerCase().includes(debouncedSearch.toLowerCase()) ||
+          u.lastName.toLowerCase().includes(debouncedSearch.toLowerCase()),
       ),
-    [search],
+    [debouncedSearch],
   );
   return (
     <main className="container mx-auto h-screen pt-24 pb-8">
@@ -79,8 +82,8 @@ const Page = () => {
           <FallbackComponent></FallbackComponent>
         </AuthLoading>
         <Authenticated>
-          <div>
-            <div className="mb-6">
+          <>
+            <div className="mx-2 mb-6">
               <Input
                 placeholder="Search users..."
                 value={search}
@@ -88,7 +91,7 @@ const Page = () => {
                 className="w-full"
               />
             </div>
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
+            <div className="grid grid-cols-2 gap-2 md:grid-cols-3 md:gap-4">
               <AnimatePresence>
                 {filteredUsers.map((user) => (
                   <motion.div
@@ -98,24 +101,26 @@ const Page = () => {
                     exit={{ opacity: 0, y: 20 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <Card className="flex items-center p-4">
-                      <Image
-                        src={user.imageUrl}
-                        alt="profile picture"
-                        width={56}
-                        height={56}
-                      />
-                      <CardContent className="p-0">
-                        <div className="text-lg font-semibold">
-                          {user.firstName} {user.lastName}
-                        </div>
-                      </CardContent>
-                    </Card>
+                    <Link href={`/dashboard/user/${user.id}`} prefetch={false}>
+                      <Card className="hover:bg-accent mx-2 flex items-center p-4 transition-colors">
+                        <Image
+                          src={user.imageUrl}
+                          alt="profile picture"
+                          width={56}
+                          height={56}
+                        />
+                        <CardContent className="p-0">
+                          <div className="text-lg font-semibold">
+                            {user.firstName} {user.lastName}
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </Link>
                   </motion.div>
                 ))}
               </AnimatePresence>
             </div>
-          </div>
+          </>
         </Authenticated>
       </div>
     </main>
