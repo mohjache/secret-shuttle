@@ -134,7 +134,7 @@ export function SpiderChart() {
 
       <div className="grid max-h-[calc(100vh-12rem)] gap-6 lg:grid-cols-2">
         {/* Spider Chart */}
-        <Card className="border-slate-700 bg-slate-800/50 backdrop-blur-sm">
+        <Card className="mx-2 border-slate-700 bg-slate-800/50 backdrop-blur-sm">
           <CardHeader>
             <CardTitle className="text-center text-white">
               Character Radar
@@ -213,7 +213,7 @@ export function SpiderChart() {
         </Card>
 
         {/* Controls */}
-        <Card className="border-slate-700 bg-slate-800/50 backdrop-blur-sm">
+        <Card className="mx-2 border-slate-700 bg-slate-800/50 backdrop-blur-sm">
           <CardHeader>
             <CardTitle className="text-center text-white">
               Adjust Your Stats
