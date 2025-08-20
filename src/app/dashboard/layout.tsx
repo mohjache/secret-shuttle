@@ -1,4 +1,5 @@
 import { ClerkProvider } from "@clerk/nextjs";
+import { DashboardNav } from "~/components/navigation/DashboardNav";
 import { ConvexClientProvider } from "~/providers/ConvexClientProvider";
 
 export default function RootLayout({
@@ -8,7 +9,10 @@ export default function RootLayout({
     <ClerkProvider
       afterSignOutUrl={process.env.NEXT_PUBLIC_REDIRECT_AFTER_SIGNOUT_URL}
     >
-      <ConvexClientProvider>{children}</ConvexClientProvider>
+      <ConvexClientProvider>
+        <DashboardNav></DashboardNav>
+        {children}
+      </ConvexClientProvider>
     </ClerkProvider>
   );
 }
