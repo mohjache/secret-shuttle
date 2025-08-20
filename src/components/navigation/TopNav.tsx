@@ -12,16 +12,13 @@ export const TopNav = () => {
         </Link>
       </div>
       <div className="flex items-center justify-center">
-        {/* <Button
+        <Button
           className="bg-primary-foreground text-primary hover:bg-primary-foreground/40 cursor-pointer rounded-lg px-6 py-3 font-semibold transition-colors"
           asChild
         >
           <Link href="/dashboard">Sign In</Link>
-        </Button> */}
+        </Button>
       </div>
     </div>
   );
 };
-
-
-
