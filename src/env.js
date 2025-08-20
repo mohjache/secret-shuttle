@@ -8,6 +8,7 @@ export const env = createEnv({
    */
   server: {
     CONVEX_DEPLOY_KEY: z.string(),
+    CLERK_SECRET_KEY: z.string(),
     NODE_ENV: z.enum(["development", "test", "production"]),
   },
 
@@ -29,6 +30,7 @@ export const env = createEnv({
    * middlewares) or client-side so we need to destruct manually.
    */
   runtimeEnv: {
+    CLERK_SECRET_KEY: process.env.CLERK_SECRET_KEY,
     NODE_ENV: process.env.NODE_ENV,
     NEXT_PUBLIC_CLERK_FRONTEND_API_URL:
       process.env.NEXT_PUBLIC_CLERK_FRONTEND_API_URL,
