@@ -78,50 +78,45 @@ const Page = () => {
   return (
     <main className="container mx-auto h-screen pt-24 pb-8">
       <div className="mx-auto max-w-2xl">
-        <AuthLoading>
-          <FallbackComponent></FallbackComponent>
-        </AuthLoading>
-        <Authenticated>
-          <>
-            <div className="mx-2 mb-6">
-              <Input
-                placeholder="Search users..."
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-                className="w-full"
-              />
-            </div>
-            <div className="grid grid-cols-2 gap-2 md:grid-cols-3 md:gap-4">
-              <AnimatePresence>
-                {filteredUsers.map((user) => (
-                  <motion.div
-                    key={user.id}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 20 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <Link href={`/dashboard/user/${user.id}`} prefetch={false}>
-                      <Card className="hover:bg-accent mx-2 flex items-center p-4 transition-colors">
-                        <Image
-                          src={user.imageUrl}
-                          alt="profile picture"
-                          width={56}
-                          height={56}
-                        />
-                        <CardContent className="p-0">
-                          <div className="text-lg font-semibold">
-                            {user.firstName} {user.lastName}
-                          </div>
-                        </CardContent>
-                      </Card>
-                    </Link>
-                  </motion.div>
-                ))}
-              </AnimatePresence>
-            </div>
-          </>
-        </Authenticated>
+        <>
+          <div className="mx-2 mb-6">
+            <Input
+              placeholder="Search users..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              className="w-full"
+            />
+          </div>
+          <div className="grid grid-cols-2 gap-2 md:grid-cols-3 md:gap-4">
+            <AnimatePresence>
+              {filteredUsers.map((user) => (
+                <motion.div
+                  key={user.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 20 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <Link href={`/dashboard/user/${user.id}`}>
+                    <Card className="hover:bg-accent mx-2 flex items-center p-4 transition-colors">
+                      <Image
+                        src={user.imageUrl}
+                        alt="profile picture"
+                        width={56}
+                        height={56}
+                      />
+                      <CardContent className="p-0">
+                        <div className="text-lg font-semibold">
+                          {user.firstName} {user.lastName}
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </Link>
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </div>
+        </>
       </div>
     </main>
   );
